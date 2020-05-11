@@ -21,7 +21,8 @@ class Karma
   constructor: (@robot) ->
     @cache = {}
     @increment_responses = [
-      "+1!", "gained a level!", "is on the rise!", "leveled up!"
+    #   "+1!", "gained a level!", "is on the rise!", "leveled up!"
+      "THANK YOU!", "SHOUT OUT", "You're Awesome!", 
     ]
     @decrement_responses = [
       "took a hit! Ouch.", "took a dive.", "lost a life.", "lost a level."
@@ -66,7 +67,7 @@ class Karma
     sorted.slice(-n).reverse()
 module.exports = (robot) ->
   karma = new Karma robot
-  allow_self = process.env.KARMA_ALLOW_SELF or "true"
+  allow_self = process.env.KARMA_ALLOW_SELF or "false"
   robot.hear /(\S+[^+:\s])[: ]*\+\+(\s|$)/, (msg) ->
     subject = msg.match[1].toLowerCase()
     if allow_self is true or msg.message.user.name.toLowerCase() != subject
