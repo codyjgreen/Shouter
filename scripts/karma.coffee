@@ -67,7 +67,7 @@ class Karma
     sorted.slice(-n).reverse()
 module.exports = (robot) ->
   karma = new Karma robot
-  allow_self = process.env.KARMA_ALLOW_SELF or "false"
+  allow_self = process.env.KARMA_ALLOW_SELF or "True"
   robot.hear /(\S+[^+:\s])[: ]*\+\+(\s|$)/, (msg) ->
     subject = msg.match[1].toLowerCase()
     if allow_self is true or msg.message.user.name.toLowerCase() != subject
