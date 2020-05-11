@@ -47,9 +47,7 @@ class Karma
      @decrement_responses[Math.floor(Math.random() * @decrement_responses.length)]
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
-      "Hey everyone! #{name} is a narcissist!",
-      "I might just allow that next time, but no.",
-      "I can't do that #{name}."
+      "try giving someone else a shoutout!"
     ]
   get: (thing) ->
     k = if @cache[thing] then @cache[thing] else 0
